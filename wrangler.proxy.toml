@@ -1,0 +1,6 @@
+name = "readmate-weread-proxy"
+main = "worker/proxy.ts"
+compatibility_date = "2024-11-01"
+
+# 部署后把 Worker URL 配到前端 VITE_WEREAD_PROXY_URL，
+# 或在 Pages 上把 /api/weread* 路由到本 Worker。

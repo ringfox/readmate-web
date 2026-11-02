@@ -1,0 +1,24 @@
+{
+  "name": "readmate-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "\u7f51\u9875\u7248 Readmate \u2014 \u5fae\u4fe1\u8bfb\u4e66\u5212\u7ebf/\u60f3\u6cd5\u540c\u6b65\u4e0e\u6d4f\u89c8",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "deploy:pages": "npm run build && wrangler pages deploy dist --project-name=readmate-web",
+    "deploy:proxy": "wrangler deploy -c wrangler.proxy.toml"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "wrangler": "^4.0.0"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "esbuild@0.28.2": true,
+    "workerd@1.20261101.1": true
+  }
+}

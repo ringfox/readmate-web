@@ -62,8 +62,12 @@ export function getProxyUrl(): string {
   if (stored && stored.trim()) return stored.trim().replace(/\/$/, '');
   const env = import.meta.env.VITE_WEREAD_PROXY_URL;
   if (env && String(env).trim()) return String(env).trim().replace(/\/$/, '');
-  // 默认约定：同域 /api/weread（Pages + Worker 路由，或 Vite 开发代理）
-  return '/api/weread';
+  // 本地 Vite 开发：走同域代理
+  if (typeof location !== 'undefined' && /localhost|127\.0\.0\.1/.test(location.hostname)) {
+    return '/api/weread';
+  }
+  // 生产默认：已部署的无状态 CORS 代理（不存 Key）
+  return 'https://readmate-weread-proxy.5151app.workers.dev';
 }
 
 export function setProxyUrl(url: string): void {

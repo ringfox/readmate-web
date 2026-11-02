@@ -56,10 +56,10 @@ npm run preview
 
 ```bash
 npx wrangler deploy -c wrangler.proxy.toml
-# 记下 *.workers.dev 地址，在设置页填为代理 URL
-# 或构建时：
-# VITE_WEREAD_PROXY_URL=https://readmate-weread-proxy.<subdomain>.workers.dev npm run build
 ```
+
+当前已部署示例：`https://readmate-weread-proxy.5151app.workers.dev`  
+生产环境前端默认使用该地址；本地 `npm run dev` 仍走 `/api/weread` Vite 代理。也可在设置页覆盖。
 
 前端默认代理路径是 `/api/weread`（可与 Pages Functions / 路由绑到同一 Worker）。
 
